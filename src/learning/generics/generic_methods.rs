@@ -16,13 +16,14 @@ impl Point<f32> {
     }
 }
 
-struct MixedPoint<X1, Y1> {
-    x: X1,
-    y: Y1,
+#[derive(Debug)]
+pub struct MixedPoint<X1, Y1> {
+    pub x: X1,
+    pub y: Y1,
 }
 
 impl<X1, Y1> MixedPoint<X1, Y1> {
-    fn mixup<X2, Y2>(self, other: MixedPoint<X2, Y2>) -> MixedPoint<X1, Y2> {
+    pub fn mixup<X2, Y2>(self, other: MixedPoint<X2, Y2>) -> MixedPoint<X1, Y2> {
         MixedPoint {
             x: self.x,
             y: other.y,

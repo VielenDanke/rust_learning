@@ -1,5 +1,15 @@
 pub mod learning;
 
+use learning::generics::generic_methods::*;
+
 fn main() {
-    learning::exceptions::recoverable_result::file_not_exist_recoverable(&"hello.txt".to_string())
+    let point_1 = MixedPoint {
+        x: 1.0,
+        y: 15.4,
+    };
+    let point_2 = MixedPoint {
+        x: "bla",
+        y: 'c'
+    };
+    println!("{:?}", point_1.mixup(point_2))
 }
