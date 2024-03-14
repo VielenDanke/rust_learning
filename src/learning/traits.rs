@@ -2,8 +2,10 @@ pub mod create_and_implement_trait;
 pub mod traits_as_parameters;
 pub mod traits_with_generics;
 pub mod return_traits;
+pub mod traits_restrictions_with_conditional;
 
 use create_and_implement_trait::{Tweet, Summary, NewsArticle};
+use traits_restrictions_with_conditional::Pair;
 
 pub fn test_traits() {
     let tweet = Tweet {
@@ -28,4 +30,7 @@ pub fn test_traits() {
     };
 
     println!("The default message: {}", article.summarize_default());
+
+    let pair = Pair::new(1, 3);
+    pair.cmp_display();
 }
