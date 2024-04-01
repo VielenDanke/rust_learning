@@ -11,6 +11,7 @@ impl<T> Pair<T> {
     }
 }
 
+// the methods will appear only if T implements both Display and PartialOrd
 impl<T: Display + PartialOrd> Pair<T> {
     pub fn cmp_display(&self) {
         if self.x >= self.y {

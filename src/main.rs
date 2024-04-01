@@ -1,5 +1,5 @@
 pub mod learning;
 
 fn main() {
-    learning::traits::test_traits()
+    learning::lifetimes::lifetime_in_functions::example_with_different_lifetimes_compiled();
 }
