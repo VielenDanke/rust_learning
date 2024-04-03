@@ -21,16 +21,16 @@ pub fn example_with_different_lifetimes_compiled() {
 }
 
 pub fn example_with_different_lifetimes_non_compiled() {
-    let s1 = String::from("Abcd");
-    let result;
-    {
-        // it's not able to compile because the minimum lifetime is here
-        let s2 = String::from("abc");
-        result = longest(&s1, &s2);
-    }
-    // here s2 is not valid meaning min all variables will be dropped by a compiler
-    // therefore result is not valid here because it has time-to-live equal to s2
-    println!("The longest string is {result}");
+    // let s1 = String::from("Abcd");
+    // let result;
+    // {
+    //     // it's not able to compile because the minimum lifetime is here
+    //     let s2 = String::from("abc");
+    //     result = longest(&s1, &s2);
+    // }
+    // // here s2 is not valid meaning min all variables will be dropped by a compiler
+    // // therefore result is not valid here because it has time-to-live equal to s2
+    // println!("The longest string is {result}");
 }
 
 // the min lifetime of x and y will be picked up by a compiler
