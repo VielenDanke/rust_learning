@@ -1,14 +1,30 @@
-#[cfg(test)]
-mod tests {
-    use crate::structures::*;
+pub mod structures;
+pub mod collections;
+pub mod exceptions;
+pub mod generics;
+pub mod traits;
+pub mod lifetimes;
 
-    // failed test
+// cargo test --help
+// cargo test -- --test-threads=1 (sequential tests)
+// cargo test -- --show-output (show output of successful tests as well)
+// cargo test <NAME> (run only test with <NAME>, or tests with function name contains <NAME> as substring)
+// cargo test -- --ignored (run only ignored tests)
+// cargo test -- --include-ignored (run all tests with ignored included)
+// cargo test --test integration_test (run only integration tests)
+
+#[cfg(test)]
+mod test {
+    use super::structures::*;
+
+// failed test
     // #[test]
     // fn another() {
     //     panic!("Make this test fail");
     // }
 
     #[test]
+    #[ignore] // ignores this test
     fn exploration() {
         assert_eq!(2 + 2, 4);
     }
@@ -104,6 +120,6 @@ mod tests {
 
     #[test]
     fn it_adds_two() {
-        assert_eq!(4, Calculator{}.add_two(2));
+        assert_eq!(4, Calculator {}.add_two(2));
     }
 }

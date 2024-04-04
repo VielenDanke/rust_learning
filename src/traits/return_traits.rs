@@ -24,7 +24,7 @@
 //     }
 // }
 
-use crate::learning::traits::create_and_implement_trait::{Summary, Tweet};
+use crate::traits::create_and_implement_trait::{Summary, Tweet};
 
 pub fn returns_summarizable() -> impl Summary {
     Tweet {

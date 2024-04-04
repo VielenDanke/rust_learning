@@ -1,5 +1,5 @@
 use std::fmt::{Debug, Display};
-use crate::learning::traits::create_and_implement_trait::Summary;
+use crate::traits::create_and_implement_trait::Summary;
 
 // restrict what we can use under T
 pub fn notify<T: Summary>(item: &T) {
