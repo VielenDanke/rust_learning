@@ -4,6 +4,7 @@ pub mod exceptions;
 pub mod generics;
 pub mod traits;
 pub mod lifetimes;
+pub mod closures;
 
 // cargo test --help
 // cargo test -- --test-threads=1 (sequential tests)
