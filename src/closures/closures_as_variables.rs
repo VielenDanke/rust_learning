@@ -12,7 +12,7 @@ fn example_closure_with_variable() {
 fn example_with_and_without_type_annotation() {
     fn add_one_v1(x: u32) -> u32 { x + 1 }
     let add_one_v2 = |x: u32| -> u32 { x + 1 };
-    let add_one_v3 = |x| { x + 1 };
+    // let add_one_v3 = |x| { x + 1 };
     let add_one_v4 = |x| x + 1;
 
     add_one_v4(15usize);
