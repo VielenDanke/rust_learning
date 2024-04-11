@@ -9,7 +9,7 @@ pub trait Iterator {
 
 .iter() - immutable links
 .iter_mut() - mutable links
-.into_iter() - borrow list
+.into_iter() - borrow iterator
  */
 
 

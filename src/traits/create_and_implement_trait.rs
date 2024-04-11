@@ -1,11 +1,16 @@
-pub trait Summary {
-    fn summarize(&self) -> String;
+use std::fmt::Debug;
 
-    fn summarize_author(&self) -> String;
+pub trait Summary {
+
+    type Item : Debug;
+
+    fn summarize(&self) -> Self::Item;
+
+    fn summarize_author(&self) -> Self::Item;
 
     // we can use functions which has to be implemented in functions with default realization
-    fn summarize_default(&self) -> String {
-        format!("Read more from {}", self.summarize_author())
+    fn summarize_default(&self) -> Self::Item {
+        format!("Read more from {:?}", self.summarize_author())
     }
 }
 
@@ -17,11 +22,13 @@ pub struct NewsArticle {
 }
 
 impl Summary for NewsArticle {
-    fn summarize(&self) -> String {
+    type Item = String;
+
+    fn summarize(&self) -> Self::Item {
         format!("{}, by {} ({})", self.headline, self.author, self.location)
     }
 
-    fn summarize_author(&self) -> String {
+    fn summarize_author(&self) -> Self::Item {
         String::from("Article author")
     }
     // summarize_default wasn't implemented because it has default value
@@ -35,6 +42,9 @@ pub struct Tweet {
 }
 
 impl Summary for Tweet {
+    type Item = String;
+
+
     fn summarize(&self) -> String {
         format!("{}: {}", self.username, self.content)
     }
