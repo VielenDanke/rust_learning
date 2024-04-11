@@ -1,5 +1,5 @@
 // dynamic return of any value implemented trait Summary
-pub fn returns_summarizable_dynamic(switch: bool) -> Box<dyn Summary> {
+pub fn returns_summarizable_dynamic(switch: bool) -> Box<dyn Summary<Item = String>> {
     if switch {
         Box::new(NewsArticle {
             headline: String::from(

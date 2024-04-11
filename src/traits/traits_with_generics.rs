@@ -2,7 +2,7 @@ use std::fmt::{Debug, Display};
 use crate::traits::create_and_implement_trait::Summary;
 
 // restrict what we can use under T
-pub fn notify<T: Summary>(item: &T) {
+pub fn notify<T: Summary<Item = String>>(item: &T) {
     println!("Breaking news: {}", item.summarize());
 }
 
