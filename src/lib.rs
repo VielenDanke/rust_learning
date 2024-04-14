@@ -18,6 +18,12 @@ pub mod iterator;
 #[cfg(test)]
 mod test {
     use super::structures::*;
+    // re-declare use of NewsArticle
+    // after
+    // use super::traits::NewsArticle;
+    // before
+    // use super::traits::create_and_implement_trait::NewsArticle;
+    // to do it we need to define in traits module - pub use create_and_implement_trait::{Tweet, Summary, NewsArticle};
 
 // failed test
     // #[test]

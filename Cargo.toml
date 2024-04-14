@@ -8,4 +8,11 @@ edition = "2021"
 name = "rust_learning_lib"
 path = "src/lib.rs"
 
+# rust is using opt-levels from 0..3 included.
+# release level by default = 3 (the most optimized)
+# dev level by default = 0 (the least optimized)
+# we can override the values using the code below
+[profile.dev]
+opt-level = 1
+
 [dependencies]
