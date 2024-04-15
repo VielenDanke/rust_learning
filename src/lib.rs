@@ -14,6 +14,9 @@ pub mod iterator;
 // cargo test -- --ignored (run only ignored tests)
 // cargo test -- --include-ignored (run all tests with ignored included)
 // cargo test --test integration_test (run only integration tests)
+// cargo test -p <crate>
+// cargo run -p <crate>
+// cargo install <binary> - $HOME/.cargo/bin
 
 #[cfg(test)]
 mod test {
