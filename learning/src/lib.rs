@@ -6,6 +6,7 @@ pub mod traits;
 pub mod lifetimes;
 pub mod closures;
 pub mod iterator;
+pub mod smart_pointers;
 
 // cargo test --help
 // cargo test -- --test-threads=1 (sequential tests)
@@ -20,19 +21,34 @@ pub mod iterator;
 
 #[cfg(test)]
 mod test {
+    use crate::smart_pointers::recursive_types_with_box::example_recursive_types_with_box;
+
     use super::structures::*;
-    // re-declare use of NewsArticle
+
+// re-declare use of NewsArticle
     // after
     // use super::traits::NewsArticle;
     // before
     // use super::traits::create_and_implement_trait::NewsArticle;
     // to do it we need to define in traits module - pub use create_and_implement_trait::{Tweet, Summary, NewsArticle};
 
-// failed test
+    // failed test
     // #[test]
     // fn another() {
     //     panic!("Make this test fail");
     // }
+    // #[test]
+    // fn test_box() {
+    //     example_recursive_types()
+    // }
+
+    #[test]
+    fn test_recursive_with_box() {
+        let result = example_recursive_types_with_box();
+        assert!(result.contains("1"));
+        assert!(result.contains("2"));
+        assert!(result.contains("3"));
+    }
 
     #[test]
     #[ignore] // ignores this test
