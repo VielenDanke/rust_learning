@@ -1,6 +1,6 @@
 mod common;
-
-use rust_learning_lib::structures::*;
+use learning;
+use learning::structures::*;
 
 #[test]
 fn test() {
