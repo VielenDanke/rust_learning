@@ -9,7 +9,7 @@ pub trait Summary {
     fn summarize_author(&self) -> Self::Item;
 
     // we can use functions which has to be implemented in functions with default realization
-    fn summarize_default(&self) -> Self::Item {
+    fn summarize_default(&self) -> String {
         format!("Read more from {:?}", self.summarize_author())
     }
 }
@@ -45,11 +45,11 @@ impl Summary for Tweet {
     type Item = String;
 
 
-    fn summarize(&self) -> String {
+    fn summarize(&self) -> Self::Item {
         format!("{}: {}", self.username, self.content)
     }
 
-    fn summarize_author(&self) -> String {
+    fn summarize_author(&self) -> Self::Item {
         String::from("Tweet author")
     }
 }

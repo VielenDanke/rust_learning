@@ -1,4 +1,3 @@
-
 // sum takes ownership on v1_iter after a call to .sum()
 // like terminal methods
 pub fn consume_iterators() {
@@ -6,14 +5,14 @@ pub fn consume_iterators() {
 
     let v1_iter = v1.iter();
 
-    println!("Sum of elements {:?} is equal to {}", v1, v1_iter.sum());
+    println!("Sum of elements {:?} is equal to {}", v1, v1_iter.sum::<i32>());
 }
 
 // non-terminal methods, the terminal methods has to be called in order to trigger chain of lazy methods
 pub fn do_not_consume_iterators() {
     let v1 = vec![1, 2, 3];
 
-    let new_list_v1 = v1.iter().map(|x| x + 1).collect();
+    let new_list_v1 = v1.iter().map(|x| x + 1).collect::<Vec<i32>>();
 
     println!("List {:?} contains all values {:?} incremented by 1", new_list_v1, v1);
 }

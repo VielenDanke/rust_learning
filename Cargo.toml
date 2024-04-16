@@ -1,22 +1,5 @@
-[package]
-name = "rust_learning"
-version = "0.1.0"
-edition = "2021"
-# To see all licence identificators - https://spdx.org/licenses/
-license = "MIT OR Apache 2.0"
-# To use external licence in a file
-# license-file = "path"
+[workspace]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-[lib]
-name = "rust_learning_lib"
-path = "src/lib.rs"
-
-# rust is using opt-levels from 0..3 included.
-# release level by default = 3 (the most optimized)
-# dev level by default = 0 (the least optimized)
-# we can override the values using the code below
-[profile.dev]
-opt-level = 1
-
-[dependencies]
+members = [
+    "learning",
+]
