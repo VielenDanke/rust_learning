@@ -22,6 +22,8 @@ pub mod smart_pointers;
 #[cfg(test)]
 mod test {
     use crate::smart_pointers::recursive_types_with_box::example_recursive_types_with_box;
+    use crate::smart_pointers::drop_trait;
+    use crate::smart_pointers::rc_pointers::*;
 
     use super::structures::*;
 
@@ -54,6 +56,21 @@ mod test {
     #[ignore] // ignores this test
     fn exploration() {
         assert_eq!(2 + 2, 4);
+    }
+
+    #[test]
+    fn test_custom_smart_pointers() {
+        drop_trait::example();
+    }
+
+    #[test]
+    fn test_std_mem_drop() {
+        drop_trait::example_std_mem_drop();
+    }
+
+    #[test]
+    fn test_rc_links_count() {
+        rc_example();
     }
 
     #[test]

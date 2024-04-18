@@ -7,7 +7,7 @@ use crate::smart_pointers::recursive_types_with_box::ListBox::{Cons, Nil};
 // }
 
 #[derive(Debug)]
-enum ListBox<T> {
+pub enum ListBox<T> {
     Cons(T, Box<ListBox<T>>),
     Nil,
 }
