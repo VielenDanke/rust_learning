@@ -13,3 +13,5 @@ pub mod box_as_link;
 pub mod drop_trait;
 pub mod rc_pointers;
 pub mod refcell;
+pub mod rc_with_refcell;
+pub mod link_looping;
