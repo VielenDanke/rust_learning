@@ -68,6 +68,31 @@ mod test {
     }
 
     #[test]
+    fn text_mutex_multithreading_example() {
+        parallelism_with_common_state::mutex_multithreading_example();
+    }
+
+    #[test]
+    fn test_mutex_example() {
+        parallelism_with_common_state::mutex_example();
+    }
+
+    #[test]
+    fn test_multiple_messages_channel_example() {
+        sending_data_between_threads::multiple_messages_channel_example();
+    }
+
+    #[test]
+    fn test_channel_example() {
+        sending_data_between_threads::channel_example();
+    }
+
+    #[test]
+    fn test_spawn_thread_with_move() {
+        concurrent_work_with_threads::create_thread_with_move();
+    }
+
+    #[test]
     fn test_spawn_thread() {
         concurrent_work_with_threads::create_thread_with_spawn();
     }
