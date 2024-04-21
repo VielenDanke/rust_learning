@@ -8,6 +8,7 @@ pub mod closures;
 pub mod iterator;
 pub mod smart_pointers;
 pub mod concurrency;
+pub mod oop;
 
 // cargo test --help
 // cargo test -- --test-threads=1 (sequential tests)
@@ -29,6 +30,7 @@ mod test {
     use crate::smart_pointers::refcell::{LimitTracker, Messenger};
     use crate::smart_pointers::rc_with_refcell::*;
     use crate::concurrency::*;
+    use crate::oop::*;
 
     use super::structures::*;
 
@@ -65,6 +67,11 @@ mod test {
         fn send(&self, message: &str) {
             self.sent_messages.borrow_mut().push(String::from(message));
         }
+    }
+
+    #[test]
+    fn test_limited_parametric_polymorphism_with_traits() {
+        limited_parametric_polymorphism_with_traits::run_example();
     }
 
     #[test]
