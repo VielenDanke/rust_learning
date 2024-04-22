@@ -71,6 +71,19 @@ mod test {
     }
 
     #[test]
+    fn test_oop_pattern_state_with_types_example() {
+        let mut post = pattern_state_example_with_types_change::Post::new();
+
+        post.add_text("I ate a salad for lunch today");
+
+        let post = post.request_review();
+
+        let post = post.approve();
+
+        assert_eq!("I ate a salad for lunch today", post.content());
+    }
+
+    #[test]
     fn test_oop_pattern_state_example_double_review_was_applied() {
         let mut post = Post::new();
 
