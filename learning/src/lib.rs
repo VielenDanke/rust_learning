@@ -31,6 +31,7 @@ mod test {
     use crate::smart_pointers::rc_with_refcell::*;
     use crate::concurrency::*;
     use crate::oop::*;
+    use crate::oop::pattern_state_example::*;
 
     use super::structures::*;
 
@@ -67,6 +68,35 @@ mod test {
         fn send(&self, message: &str) {
             self.sent_messages.borrow_mut().push(String::from(message));
         }
+    }
+
+    #[test]
+    fn test_oop_pattern_state_example_double_review_was_applied() {
+        let mut post = Post::new();
+
+        post.add_text("I ate a salad for lunch today");
+        assert_eq!("", post.content());
+
+        post.request_review();
+        assert_eq!("", post.content());
+
+        post.approve();
+        post.approve();
+        assert_eq!("I ate a salad for lunch today", post.content());
+    }
+
+    #[test]
+    fn test_oop_pattern_state_example_double_review_was_not_applied() {
+        let mut post = Post::new();
+
+        post.add_text("I ate a salad for lunch today");
+        assert_eq!("", post.content());
+
+        post.request_review();
+        assert_eq!("", post.content());
+
+        post.approve();
+        assert_eq!("", post.content());
     }
 
     #[test]
