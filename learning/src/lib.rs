@@ -9,6 +9,7 @@ pub mod iterator;
 pub mod smart_pointers;
 pub mod concurrency;
 pub mod oop;
+pub mod patterns_mappings;
 
 // cargo test --help
 // cargo test -- --test-threads=1 (sequential tests)
