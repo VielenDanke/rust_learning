@@ -10,6 +10,7 @@ pub mod smart_pointers;
 pub mod concurrency;
 pub mod oop;
 pub mod patterns_mappings;
+pub mod extended_features;
 
 // cargo test --help
 // cargo test -- --test-threads=1 (sequential tests)
