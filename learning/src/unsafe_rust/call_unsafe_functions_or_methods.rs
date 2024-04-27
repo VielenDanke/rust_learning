@@ -5,7 +5,7 @@ unsafe fn dangerous() {}
 pub fn call_dangerous_function() {
     unsafe {
         dangerous();
-        let ptr = 5 as &mut i32;
+        let ptr = &mut 5;
         *ptr += 1;
         drop(*ptr);
     }

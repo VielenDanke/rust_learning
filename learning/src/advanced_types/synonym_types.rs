@@ -1,3 +1,5 @@
+use std::fmt;
+
 type Kilometers = i32;
 
 pub fn example() {

@@ -13,6 +13,8 @@ pub mod patterns_mappings;
 pub mod unsafe_rust;
 pub mod advanced_traits;
 pub mod advanced_types;
+pub mod advanced_functions_and_closures;
+pub mod macros;
 
 // cargo test --help
 // cargo test -- --test-threads=1 (sequential tests)
