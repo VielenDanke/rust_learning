@@ -7,4 +7,3 @@
 https://doc.rust-lang.ru/book/ch19-06-macros.html
  */
 pub mod macros_rules;
-pub mod procedural_macros;
