@@ -5,4 +5,5 @@ mod case_insensitive_sort;
 mod convert_text_to_morse_code;
 mod value_of_a_hand_of_cards;
 mod has_a_deadline_been_reached;
+mod convert_between_celsius_and_fahrenheit;
 
