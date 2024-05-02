@@ -6,4 +6,7 @@ mod convert_text_to_morse_code;
 mod value_of_a_hand_of_cards;
 mod has_a_deadline_been_reached;
 mod convert_between_celsius_and_fahrenheit;
+mod sum_a_list_of_numbers_with_missing_values;
+mod calculate_the_number_of_weeks_between_two_dates;
+mod validate_isbn_number;
 
