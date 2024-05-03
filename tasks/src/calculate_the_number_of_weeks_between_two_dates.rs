@@ -8,12 +8,6 @@ fn weeks_between(a: &str, b: &str) -> i32 {
     n_weeks as i32
 }
 
-fn main() {
-    let n_weeks = weeks_between("2010-01-21", "2010-10-21");
-
-    println!("hello: {}", n_weeks);
-}
-
 #[test]
 fn same_day() {
     let n_weeks = weeks_between("1010-10-10", "1010-10-10");
