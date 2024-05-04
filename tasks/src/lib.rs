@@ -11,4 +11,8 @@ mod calculate_the_number_of_weeks_between_two_dates;
 mod validate_isbn_number;
 mod check_if_a_file_exists;
 mod interpret_an_rgb_hex_color;
+mod run_length_encoding;
+mod handle_inconsistent_dates;
+mod travel_planner;
+mod vigenere_cipher;
 
