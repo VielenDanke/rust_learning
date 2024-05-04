@@ -2,5 +2,6 @@
 
 members = [
     "learning",
-    "tasks"
+    "tasks",
+    "tokio_async",
 ]
