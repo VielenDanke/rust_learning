@@ -1,11 +1,11 @@
 /*
-Вот список причин выбора типов Box<T>, Rc<T> или RefCell<T>:
+Here is a list of reasons for choosing the types Box<T>, Rc<T> or RefCell<T>:
 
-Тип Rc<T> разрешает множественное владение одними и теми же данными; типы Box<T> и RefCell<T> разрешают иметь единственных владельцев.
-Тип Box<T> разрешает неизменяемые или изменяемые владения, проверенные при компиляции;
-тип Rc<T> разрешает только неизменяемые владения, проверенные при компиляции;
-тип RefCell<T> разрешает неизменяемые или изменяемые владения, проверенные во время выполнения.
-Поскольку RefCell<T> разрешает изменяемые заимствования, проверенные во время выполнения, можно изменять значение внутри RefCell<T> даже если RefCell<T> является неизменным.
+The Rc<T> type allows multiple ownership of the same data; the Box<T> and RefCell<T> types allow for single owners.
+The Box<T> type allows immutable or mutable properties that are checked during compilation;
+the Rc<T> type only allows immutable properties that are checked during compilation;
+the RefCell type<T> allows immutable or mutable properties checked at runtime.
+Since RefCell<T> allows mutable borrowings checked at runtime, it is possible to change the value inside RefCell<T> even if RefCell<T> is immutable.
  */
 pub mod box_example;
 pub mod recursive_types_with_box;
