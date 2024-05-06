@@ -1,5 +1,6 @@
 pub mod basics;
 pub mod async_primitives;
+pub mod channels;
 
 pub async fn tokio_spawn_example() {
     basics::tokio_spawn::spawn_async_task().await;
