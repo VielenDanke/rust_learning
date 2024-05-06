@@ -9,6 +9,7 @@ async fn wait_notification(sender: Sender<String>, name: String) {
     }
 }
 
+// multi producer, multi consumer, history kept
 pub async fn broadcast_example() {
     let (tx, _rx) = broadcast::channel(100);
 
