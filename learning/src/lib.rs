@@ -16,6 +16,9 @@ pub mod advanced_types;
 pub mod advanced_functions_and_closures;
 pub mod macros;
 
+// unit tests are used in the same file as code the tests are testing
+// module name `tests` with #[cfg(test)]
+// put as much to lib.rs to perform integration testing
 // cargo test --help
 // cargo test -- --test-threads=1 (sequential tests)
 // cargo test -- --show-output (show output of successful tests as well)
