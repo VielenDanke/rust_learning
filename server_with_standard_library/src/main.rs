@@ -1,49 +1,46 @@
-use std::{fs, thread};
-use std::io::{BufRead, BufReader, Error, Read, Write};
-use std::net::{TcpListener, TcpStream};
+use std::{
+    error::Error,
+    fs,
+    io::{BufReader, prelude::*},
+    net::{TcpListener, TcpStream},
+    thread,
+    time::Duration,
+};
 
-fn read_file(filename: &str) -> Result<String, Error> {
-    Ok(format!("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n{}", fs::read_to_string(filename)?))
+use server_with_standard_library::ThreadPool;
+
+fn main() -> Result<(), Box<dyn Error>> {
+    let listener = TcpListener::bind("127.0.0.1:7878")?;
+    let pool = ThreadPool::build(4).unwrap_or(ThreadPool::new());
+
+    for stream in listener.incoming() {
+        let stream = stream.unwrap();
+
+        pool.execute(|| {
+            handle_connection(stream);
+        });
+    }
+    Ok(())
 }
 
-fn get_response(request_line: &str) -> String {
-    match request_line {
-        "GET / HTTP/1.1" => read_file("index.html"),
-        "GET /second HTTP/1.1" => read_file("second.html"),
-        _ => read_file("404.html")
-    }.unwrap_or_else(|e| format!("HTTP/1.1 500 Internal Server Error\r\n\r\n500 Internal Server Error {:?}", e))
-}
-
-fn handle_client(mut stream: TcpStream) {
+fn handle_connection(mut stream: TcpStream) {
     let buf_reader = BufReader::new(&mut stream);
     let request_line = buf_reader.lines().next().unwrap().unwrap();
 
-    let response = get_response(&request_line);
-
-    if let Err(e) = stream.write_all(response.as_bytes()) {
-        eprintln!("Failed to write to connection: {}", e);
-        return;
-    }
-    if let Err(e) = stream.flush() {
-        eprintln!("Failed to flush connection: {}", e);
-    }
-}
-
-fn main() {
-    let addr = "127.0.0.1:8080";
-
-    let listener = TcpListener::bind(addr).expect("Failed to bind");
-
-    println!("Server is listening on {}", addr);
-
-    for stream in listener.incoming() {
-        match stream {
-            Ok(stream) => {
-                thread::spawn(|| {
-                    handle_client(stream);
-                });
-            }
-            Err(e) => eprintln!("Error accepting connection: {}", e),
+    let (status_line, filename) = match request_line.as_str() {
+        "GET / HTTP/1.1" => ("HTTP/1.1 200 OK", "hello.html"),
+        "GET /sleep HTTP/1.1" => {
+            thread::sleep(Duration::from_secs(5));
+            ("HTTP/1.1 200 OK", "hello.html")
         }
-    }
+        _ => ("HTTP/1.1 404 NOT FOUND", "404.html"),
+    };
+
+    let contents = fs::read_to_string(filename).unwrap();
+    let length = contents.len();
+
+    let response =
+        format!("{status_line}\r\nContent-Length: {length}\r\n\r\n{contents}");
+
+    stream.write_all(response.as_bytes()).unwrap();
 }
