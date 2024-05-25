@@ -1,6 +1,7 @@
-pub fn lib_func() {
-    println!("Calling library function");
-}
+mod service;
+mod repository;
+
+// lib.rs -> mod service -> service.rs -> package service -> service/product_service.rs
 
 pub fn is_even(number: i32) -> bool {
     number % 2 == 0
@@ -9,6 +10,11 @@ pub fn is_even(number: i32) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn test_products() {
+        repository::fetch_products();
+    }
 
     #[test]
     fn it_works() {

@@ -6,4 +6,6 @@ members = [
     "tokio_async",
     "managing_projects",
     "server_with_standard_library",
+    "server_with_tide",
+    "server_with_warp",
 ]
