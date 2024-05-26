@@ -2,7 +2,6 @@
 extern crate rocket;
 
 use std::net::{IpAddr, Ipv4Addr};
-use std::string::ToString;
 use std::sync::{Arc, RwLock};
 
 use rocket::{Response, serde, State};
