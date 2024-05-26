@@ -9,4 +9,5 @@ members = [
     "server_with_tide",
     "server_with_warp",
     "server_with_rocket",
+    "server_with_actix",
 ]

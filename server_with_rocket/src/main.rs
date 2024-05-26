@@ -72,7 +72,6 @@ impl<'r> Responder<'r, 'r> for ApiResponse {
                 .header(ContentType::JSON)
                 .ok()
         }
-
     }
 }
 
@@ -89,7 +88,7 @@ impl User {
     }
 }
 
-pub struct Repository {
+struct Repository {
     users: Arc<RwLock<Vec<User>>>,
 }
 
@@ -122,13 +121,20 @@ impl Repository {
     }
 
     fn delete_by_id(&self, id: u64) -> Option<User> {
-        match self.find_by_id(id) {
-            None => None,
-            Some(user) => {
-                self.users.write().unwrap().remove((user.id.unwrap() - 1) as usize);
-                Some(user)
+        let mut idx_to_remove = None;
+        let read_guard = self.users.read().unwrap();
+        for (i, u) in read_guard.iter().enumerate() {
+            if u.id.unwrap() == id {
+                idx_to_remove = Some(i);
+                break;
             }
         }
+        if let Some(idx) = idx_to_remove {
+            let user = read_guard.get(idx).unwrap().clone();
+            self.users.write().unwrap().remove(idx);
+            return Some(user);
+        }
+        None
     }
 }
 
