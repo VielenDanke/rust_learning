@@ -10,4 +10,5 @@ members = [
     "server_with_warp",
     "server_with_rocket",
     "server_with_actix",
+    "chat-tokio-stream"
 ]
