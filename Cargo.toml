@@ -11,5 +11,6 @@ members = [
     "server_with_rocket",
     "server_with_actix",
     "chat-tokio-stream",
-    "basic_blockchain_example"
+    "basic_blockchain_example",
+    "rust_websocket"
 ]
